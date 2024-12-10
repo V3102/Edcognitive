@@ -11,7 +11,14 @@ const home = async (req, res) => {
 
 const register = async (req, res) => {
     try {
-        res.status(200).send('vaibhav by router RES');
+        
+        const { username, email, phone, password} = req.body;
+        const userExist = await User.findOne({email});
+        if(userExist){
+            return res.status(400).json({msg: "email exist"});
+        }
+        const userCreated = await User.create({username, email, phone, password});
+        
     } catch (error) {
         console.log("error");
     }
