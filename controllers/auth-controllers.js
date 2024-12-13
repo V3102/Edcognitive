@@ -40,9 +40,8 @@ const login = async (req, res) => {
 
         if(!userExist){
             returnres.status(400).json({message: "Invalid Credentials"});
-
         }
-        // const user = await bcrypt.compare(password, userExist.password);
+
         const user = await userExist.comparePassword(password);
 
         if(user){
@@ -55,7 +54,8 @@ const login = async (req, res) => {
         else{
             res.status(401).json({message: "Invalid email or password"});
         }
-    } catch (error) {
+    } 
+    catch (error) {
         res.status(500).json("internal server error")
         console.log("error");
     }
