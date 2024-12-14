@@ -6,6 +6,7 @@ const validate = require("../middlewares/validate-middleware")
 
 router.route("/").get(controllers.home);
 router.route("/register").post(validate(signupSchema), controllers.register);
-router.route("/login").post(validate(signupSchema), controllers.login);
+router.route("/login").get(controllers.login);  
+
 
 module.exports = router;
