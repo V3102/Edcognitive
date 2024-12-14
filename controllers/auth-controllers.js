@@ -7,7 +7,7 @@ const home = async (req, res) => {
     } catch (error) {
         console.log("error");
     }
-} 
+};
 
 const register = async (req, res) => {
     try {

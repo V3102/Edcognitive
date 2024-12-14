@@ -8,5 +8,4 @@ router.route("/").get(controllers.home);
 router.route("/register").post(validate(signupSchema), controllers.register);
 router.route("/login").post(validate(signupSchema), controllers.login);  
 
-
 module.exports = router;
