@@ -5,8 +5,8 @@ const signupSchema = require("../validators/auth-validator")
 const validate = require("../middlewares/validate-middleware")
 
 router.route("/").get(controllers.home);
-router.route("/register").post(validate(signupSchema), controllers.register);
-router.route("/login").get(controllers.login);  
+router.route("/register").post(validate(signupSchema), controllers.register); 
+router.route("/login").post(validate(signupSchema), controllers.login);
 
 
 module.exports = router;
